@@ -27,6 +27,28 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- Form Pesan -->
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+  </script>
+  <script>
+    function SubForm (){
+      $.ajax({
+          url:'https://api.apispreadsheets.com/data/jM1G49dIvE43b5U1/',
+          type:'post',
+          data:$("#myForm").serializeArray(),
+          success: function(){
+            alert("Pesan sudah terkirim :)")
+          },
+          error: function(){
+            alert("Pesan error :(")
+          }
+      });
+    }
+  </script>
+
   <!-- =======================================================
   * Template Name: iPortfolio
   * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -330,7 +352,7 @@
 
         <div class="row" data-aos="fade-in">
 
-          <div class="d-flex align-items-stretch">
+          <div class="col-lg-5 d-flex align-items-stretch">
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
@@ -362,20 +384,20 @@
                 <p>+62 81573232437</p>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.8030048813857!2d110.76564119999999!3d-7.375963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a0d2fbae683bb%3A0x195ced3bb718e325!2sJuned%20Jok%20Service!5e0!3m2!1sid!2sid!4v1688728089424!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.8030048813857!2d110.76564119999999!3d-7.375963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a0d2fbae683bb%3A0x195ced3bb718e325!2sJuned%20Jok%20Service!5e0!3m2!1sid!2sid!4v1688728089424!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 120px;" allowfullscreen></iframe>
             </div>
 
           </div>
 
-          <!-- <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form id="myForm" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  <label for="name">Nama</label>
+                  <input type="text" name="nama" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
+                  <label for="name">Email</label>
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
@@ -384,17 +406,12 @@
                 <input type="text" class="form-control" name="subject" id="subject" required>
               </div>
               <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <label for="name">Pesan</label>
+                <textarea class="form-control" name="pesan" rows="10" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit" onclick="SubForm()">Send Message</button></div>
             </form>
-          </div> -->
+          </div>
 
         </div>
 
